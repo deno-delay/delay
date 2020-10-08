@@ -77,5 +77,3 @@ delay.createWithTimers = ({ clearTimeout, setTimeout }: any) => {
   delay.reject = createDelay({ clearTimeout, setTimeout, willResolve: false });
   return delay;
 };
-
-// export default delay;
