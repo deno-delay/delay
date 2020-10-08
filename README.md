@@ -22,6 +22,10 @@ import { delay } from 'https://deno.land/x/delay@v0.1.0/mod.ts';
 })();
 ```
 
+## 📜 Changelog
+
+Details changes for each release are documented in the [CHANGELOG.md](https://github.com/deno-delay/delay/blob/main/CHANGELOG.md).
+
 ## ❗ Issues
 
 If you think any of the `delay` can be improved, please do open a PR with any updates and submit any issues. Also, I will continue to improve this, so you might want to watch/star this repository to revisit.
