@@ -14,8 +14,8 @@ import { delay } from 'https://deno.land/x/delay@v0.1.0/mod.ts';
 import { delay } from 'https://deno.land/x/delay@v0.1.0/mod.ts';
 
 (async () => {
-	console.log('Printed 100 milliseconds later')
-  
+  console.log('Printed 100 milliseconds later')
+
   await delay(100);
 
   console.log('Hello World!')
