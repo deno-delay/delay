@@ -1,6 +1,26 @@
 # delay
 
-Delay a specified amount of time. 
+The standard Deno module for delaying a specified amount of time.
+
+## 🔧 How to use
+
+```js
+import { delay } from 'https://deno.land/x/delay@v0.1.0/mod.ts';
+```
+
+## 💡 Usage
+
+```ts
+import { delay } from 'https://deno.land/x/delay@v0.1.0/mod.ts';
+
+(async () => {
+	console.log('Printed 100 milliseconds later')
+  
+  await delay(100);
+
+  console.log('Hello World!')
+})();
+```
 
 ## ❗ Issues
 
