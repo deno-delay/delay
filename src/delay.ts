@@ -2,9 +2,9 @@ const randomInteger = (minimum: number, maximum: number): number =>
   Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
   
 const createAbortError = () => {
-	const error = new Error('Delay aborted');
-	error.name = 'AbortError';
-	return error;
+  const error = new Error('Delay aborted');
+  error.name = 'AbortError';
+  return error;
 };
 
 interface Options {
@@ -22,46 +22,46 @@ const createDelay = ({
   }
 
   let timeoutId: any;
-	let settle: any;
-	let rejectFn: any;
-	const clear = defaultClear || clearTimeout;
+  let settle: any;
+  let rejectFn: any;
+  const clear = defaultClear || clearTimeout;
   
   const signalListener = () => {
-		clear(timeoutId);
-		rejectFn(createAbortError());
+    clear(timeoutId);
+    rejectFn(createAbortError());
   };
   
   const cleanup = () => {
-		if (options?.signal) {
-			options?.signal.removeEventListener('abort', signalListener);
-		}
+    if (options?.signal) {
+      options?.signal.removeEventListener('abort', signalListener);
+    }
   };
   
   let delayPromise: any;
 
   delayPromise = new Promise((resolve, reject) => {
-		settle = () => {
-			cleanup();
-			if (willResolve) {
-				resolve(options?.value);
-			} else {
-				reject(options?.value);
-			}
-		};
+    settle = () => {
+      cleanup();
+      if (willResolve) {
+        resolve(options?.value);
+      } else {
+        reject(options?.value);
+      }
+    };
 
-		rejectFn = reject;
-		timeoutId = (set || setTimeout)(settle, ms);
-	});
+    rejectFn = reject;
+    timeoutId = (set || setTimeout)(settle, ms);
+  });
 
   if (options?.signal) {
     options?.signal.addEventListener('abort', signalListener, {once: true});
   }
   
   delayPromise.clear = () => {
-		clear(timeoutId);
-		timeoutId = null;
-		settle();
-	};
+    clear(timeoutId);
+    timeoutId = null;
+    settle();
+  };
 
   return delayPromise;
 };
