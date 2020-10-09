@@ -5,20 +5,40 @@ The standard Deno module for delaying a specified amount of time.
 ## 🔧 How to use
 
 ```js
-import { delay } from 'https://deno.land/x/delay@v0.1.0/mod.ts';
+import { delay } from 'https://deno.land/x/delay@v0.2.0/mod.ts';
 ```
 
 ## 💡 Usage
 
+### 🎀 delay
+
 ```ts
-import { delay } from 'https://deno.land/x/delay@v0.1.0/mod.ts';
+import { delay } from 'https://deno.land/x/delay@v0.2.0/mod.ts';
 
 (async () => {
-  console.log('Printed 100 milliseconds later')
+  console.log('Executed 100 milliseconds later')
 
   await delay(100);
 
   console.log('Hello World!')
+})();
+```
+
+### 🎀 delay.reject
+
+```ts
+import { delay } from 'https://deno.land/x/delay@v0.2.0/mod.ts';
+
+(async () => {
+  try {
+    await delay.reject(100, { value: new Error('Rejected') });
+
+    console.log('This is never executed');
+  } catch (error) {
+    // 100 milliseconds later
+    console.log(error);
+    //=> [Error: Rejected]
+  }
 })();
 ```
 
