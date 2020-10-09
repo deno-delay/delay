@@ -16,11 +16,11 @@ import { delay } from 'https://deno.land/x/delay@v0.2.0/mod.ts';
 import { delay } from 'https://deno.land/x/delay@v0.2.0/mod.ts';
 
 (async () => {
-  console.log('Executed 100 milliseconds later')
+  console.log('Executed 100 milliseconds later');
 
   await delay(100);
 
-  console.log('Hello World!')
+  console.log('Hello World!');
 })();
 ```
 
